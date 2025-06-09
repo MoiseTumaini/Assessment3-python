@@ -18,7 +18,25 @@ def generate_fibonacci_sequence(n: int) -> list:
     Learning Outcomes: Functions, Loops (1D), Control Flow, Data Structures (lists), Problem-solving.
     """
     # TODO: Implement this function
-    pass
+
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0,1]
+    
+    fibo_list = [0,1]
+
+    for i in range(2,n):
+        next_fibo_value = fibo_list[i-1] + fibo_list[i-2]
+        fibo_list.append(next_fibo_value)
+
+    return fibo_list
+
+
+
+    # pass
 
 
 def is_palindrome_advanced(text: str) -> bool:
@@ -37,7 +55,11 @@ def is_palindrome_advanced(text: str) -> bool:
     Hint: You might find string methods like .lower(), .isalpha(), or the `re` module useful.
     """
     # TODO: Implement this function
-    pass
+    text = ''.join([char for char in text if char.isalpha() or char.isdigit()]).lower()
+    return text[::-1] == text
+
+    # pass
+# print(is_palindrome_advanced("Race car!!"))
 
 
 def find_elements_in_matrix_greater_than_value(matrix: list, value: int or float) -> list:
@@ -57,6 +79,15 @@ def find_elements_in_matrix_greater_than_value(matrix: list, value: int or float
     Learning Outcomes: Functions, Loops (2D - nested), Control Flow, Data Structures (lists).
     """
     # TODO: Implement this function
+    # new_list = []
+    # for i in matrix:
+    #     for j in i:
+    #         if j > value:
+    #             new_list.append(j)
+    # return new_list
+
+    return [j for i in matrix for j in i if j > value]
+
     pass
 
 
@@ -81,6 +112,12 @@ def format_names_list(names_list: list) -> list:
     Learning Outcomes: Functions, Loops (1D), String Manipulation (split), Data Structures (lists, dictionaries).
     """
     # TODO: Implement this function
+    new_list = []
+    for person in names_list:
+        split_name = person.split();print(split_name) #;return split_name
+        new_list.append({'first_name': split_name[0], 'last_name': split_name[1] if len(split_name) > 1 else ""})
+    return new_list
+
     pass
 
 
